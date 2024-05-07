@@ -2,7 +2,11 @@ import React, {useEffect} from 'react';
 import { Image, Text, StyleSheet, View, ScrollView, TouchableOpacity, TextInput, Button, Alert } from 'react-native';
 import { BlurView } from 'expo-blur';
 
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import ListarProductos from './components/ListarProductos';
+import PaginaDetalle from './components/PaginaDetalle';
+import PaginaAgregar from './components/PaginaAgregar';
+
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './firebase-config';
 
@@ -11,14 +15,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 
 
-const uri = 'https://ak.picdn.net/shutterstock/videos/1060308725/thumb/1.jpg'
-const profilePicture = 'https://randomuser.me/api/portraits/men/34.jpg'
+const uri = 'https://c.wallhere.com/photos/45/37/One_Piece_Monkey_D_Luffy-1981465.jpg!d'
+const profilePicture = 'https://s.gravatar.com/avatar/fa0a10fa9a29fa8f8fb41350b985573f?s=480&r=pg&d=https%3A%2F%2Fstorage.googleapis.com%2Fexpo-website-default-avatars%2Fm-2x.png'
 
-function HomeScreen() {
+function MyStack() {
+  
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
+    <Stack.Navigator>
+<Stack.Screen name="ListarProductos" component={ListarProductos} options={{ headerShown: false }} />
+<Stack.Screen name="PaginaDetalle" component={PaginaDetalle} />
+<Stack.Screen name="PaginaAgregar" component={PaginaAgregar} />
+</Stack.Navigator>
+    
   );
 }
 
@@ -36,7 +44,8 @@ function HomeScreen() {
       .then((userCredential) => {
         console.log('Account created!')
         const user = userCredential.user;
-        console.log(user)
+        console.log(user);
+        Alert.alert("Success", "Your account has been created successfully!");
       })
       .catch(error => {
         console.log(error)
@@ -55,6 +64,8 @@ function HomeScreen() {
       .catch(error => {
         console.log(error)
       })
+
+      
     }
 
 
@@ -102,7 +113,7 @@ function HomeScreen() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Home" component={MyStack} />
       </Stack.Navigator>
     </NavigationContainer>
   );

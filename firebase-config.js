@@ -4,12 +4,13 @@
 
 // Your web app's Firebase configuration
 export const firebaseConfig = {
-  apiKey: "AIzaSyCLnO41QQGk1es9Mz_sB6lLGmXDTLx69aw",
-  authDomain: "saferide-3933e.firebaseapp.com",
-  projectId: "saferide-3933e",
-  storageBucket: "saferide-3933e.appspot.com",
-  messagingSenderId: "329735677857",
-  appId: "1:329735677857:web:c6cfb2562c38e565da8de0"
+  apiKey: "AIzaSyBgSEGui-iQL8ZGJfbZLjaxpq2ejKBWcJo",
+  authDomain: "desafiodps-bb1d1.firebaseapp.com",
+  projectId: "desafiodps-bb1d1",
+  storageBucket: "desafiodps-bb1d1.appspot.com",
+  messagingSenderId: "820594265497",
+  appId: "1:820594265497:web:f29f7ff76340192ef1d708",
+  measurementId: "G-ZWBX0NXS6P"
 };
 
 // Initialize Firebase
